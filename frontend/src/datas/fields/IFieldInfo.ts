@@ -1,4 +1,4 @@
-interface IFieldInfo {
+interface IFieldInfo<T> {
     /**
      * 假设label是不重复的主键
      *
@@ -8,6 +8,6 @@ interface IFieldInfo {
     readonly fieldLabel: string;
     readonly isRequired: boolean;
     readonly fieldName: string;
-    stringity?(value: PropertyValue): string;
+    stringity?(value: T): string;
     
 }

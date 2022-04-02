@@ -1,4 +1,4 @@
-class BillTypeField implements IFieldInfo {
+class BillTypeField implements IFieldInfo<boolean> {
     
     // public static readonly fieldLabel: string = "type"
 
@@ -24,12 +24,12 @@ class BillTypeField implements IFieldInfo {
     
 }
 
-class BillTimeField implements IFieldInfo {
+class BillTimeField implements IFieldInfo<Date> {
     public readonly fieldLabel: string = "time";
     public readonly isRequired: boolean = true;
     public readonly fieldName: string = "账单时间";
 
-    private readonly _dateType: string = " ISO 8601";
+    private readonly _dateType: string = "ISO 8601";
 
     public stringity(value: Date): string {
         return value.toISOString();
@@ -37,7 +37,7 @@ class BillTimeField implements IFieldInfo {
     
 }
 
-class BillCategoryField implements IFieldInfo {
+class BillCategoryField implements IFieldInfo<string> {
     public readonly fieldLabel: string = "category";
     public readonly isRequired: boolean = false;
     public readonly fieldName: string = "账单分类";
@@ -49,7 +49,7 @@ class BillCategoryField implements IFieldInfo {
     
 }
 
-class BillAmountField implements IFieldInfo {
+class BillAmountField implements IFieldInfo<number> {
     public readonly fieldLabel: string = "amount";
     public readonly isRequired: boolean = true;
     public readonly fieldName: string = "账单金额";
