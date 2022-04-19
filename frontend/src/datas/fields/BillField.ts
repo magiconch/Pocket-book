@@ -1,66 +1,32 @@
-class BillTypeField implements IFieldInfo<boolean> {
-    
-    // public static readonly fieldLabel: string = "type"
-
-    private _instance: BillTypeField = new BillTypeField();
-
-    public getInstance(): BillTypeField {
-        return this._instance;
-    }
-    
-    private constructor() {};
-
-    public readonly fieldLabel: string = "type";
-    public readonly isRequired: boolean = true;
-    public readonly fieldName: string = "账单类型";
-
-    public stringity(value: boolean): string {
-        if (value) {
-            return "收入";
-        } else {
-            return "支出";
-        }
-    }
-    
+interface IBillField<T> {
+    stringity(value: T): string;
 }
 
-class BillTimeField implements IFieldInfo<Date> {
-    public readonly fieldLabel: string = "time";
-    public readonly isRequired: boolean = true;
-    public readonly fieldName: string = "账单时间";
-
-    private readonly _dateType: string = "ISO 8601";
-
-    public stringity(value: Date): string {
-        return value.toISOString();
-    }
+/**
+ *
+ *
+ * @class BillField
+ * @implements {IBillField<T>}
+ * @template T
+ */
+class BillField<T> implements IBillField<T> {
+    public fieldName: string;
+    public fieldLabel: string;
     
-}
-
-class BillCategoryField implements IFieldInfo<string> {
-    public readonly fieldLabel: string = "category";
-    public readonly isRequired: boolean = false;
-    public readonly fieldName: string = "账单分类";
-    public converter: getValueById<string> = (id: string) => id;
-
-    public stringity(value: string): string {
-        return this.converter(value);
-    }
+    public columnType: string = "Integer";
+    public required: boolean;
     
-}
-
-class BillAmountField implements IFieldInfo<number> {
-    public readonly fieldLabel: string = "amount";
-    public readonly isRequired: boolean = true;
-    public readonly fieldName: string = "账单金额";
-
-    private readonly _symbol: string = "￥";
-    private readonly _digits: number = 2;
-
-    public stringity(value: number): string {
-        return value.toFixed(this._digits) + this._symbol;
-    }
+    public formatter: IFormatter<T>;
     
+
+    constructor(fieldName: string, fieldLabel: string, formatter: IFormatter<T>, required: boolean = true) {
+        this.fieldName = fieldName;
+        this.fieldLabel = fieldLabel;
+        this.formatter = formatter;
+        this.required = required;
+    }
+
+    public stringity(value: T): string {
+        return this.formatter.format(value);
+    };
 }
-
-
