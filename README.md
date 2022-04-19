@@ -1,2 +1,7 @@
-# Pocket-book
-The mini pocket book
+# 小而美的记账本
+
+## 介绍
+
+TODO
+
+
