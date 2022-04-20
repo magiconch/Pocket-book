@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8" />
+    <title>记账本</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" /> -->
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-bar-text">
+          记账本
+        </div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <section class="field-row" style="justify-content: flex-start">
+        <div>
+          <button class="menu-bar">账单</button>
+          <div class="menu" style="width: 160px">
+            <ul>
+              <li><strong>添加</strong></li>
+              <li>查找</li>
+              <li>Export...</li>
+              <div class="separator"></div>
+              <li class="disabled">删除</li>
+              <li>Upload</li>
+              <li>Close</li>
+            </ul>
+          </div>
+        </div>
+        <!-- <div>
+          <button class="menu-bar">设置</button>
+          <div class="menu" style="width: 160px">
+            <ul>
+              <li>语言</li>
+            </ul>
+          </div>
+        </div> -->
+        <div>
+          <button class="menu-bar">关于</button>
+          <div class="menu" style="width: 160px">
+            <ul>
+              <li>关于我</li>
+              <li>帮助</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="separator"></div>
+      <div class="window-body">
+        <textarea rows="8" style="width: 100%;"></textarea>
+      </div>
+    </div>
+ 
+
+    </section>
+    <template id="win98-dialog">
+        <style>
+            :host {
+                /* all: initial; */
+            }
+        </style>
+        <div class="window" style="margin: 32px; width: 250px">
+            <div class="title-bar">
+              <div class="title-bar-text">添加账单</div>
+            </div>
+            <div class="window-body">
+              <div class="field-row">
+                <div class="bar">
+                  <label for="text17">账单类型：</label>
+                <select>
+                  <option>0 - 收入</option>
+                  <option>1 - 支出</option>
+                </select>
+                </div>
+                <div class="bar">
+                  <label for="text17">账单金额：</label>
+                <input id="text17" type="text">
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="bar">
+                  <label >账单分类：</label>
+                <select class="">
+                  <option>车贷</option>
+                  <option>房贷</option>
+                </select>
+                </div>
+                <div class="bar">
+                  <label>账单时间：</label>
+                <input type="datetime-local" id="meeting-time" name="meeting-time" value="2022-06-12T19:30">
+                </div>
+               
+              </div>
+              <div class="field-row">
+                <div class="bar">
+                  <button>保存</button>
+                  <button>取消</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </template>
+   
+    </div>
+  </body>
+  <script src="./bundle.js"></script>
+</html>
