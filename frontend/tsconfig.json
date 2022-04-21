@@ -4,6 +4,7 @@
       "outDir": "./dist/",
       "sourceMap": true,
       "noImplicitAny": true,
-      "target": "ES6"
+      "target": "ES6",
+      "moduleResolution": "node"
     }
   }
